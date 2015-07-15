@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-	before_filter :authorize, :except => [:index, :show]
 	before_action :authenticate_user!, except: [:index, :show]
 
 

@@ -1,6 +1,13 @@
-<%= @post.date %><br>
-<%= @post.user.email %><br>
-<%= @post.stime %><br>
-<%= @post.etime %><br>
-	<%= link_to 'Edit', edit_post_path(@post) %> |
-	<%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<% if current_user %>
+	<%= @post.date %><br>
+	<%= @post.user.email %><br>
+	<%= @post.stime %><br>
+	<%= @post.etime %><br>
+		<%= link_to 'Edit', edit_post_path(@post) %> |
+		<%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<% else %>
+	<%= @post.date %><br>
+	<%= @post.user.email %><br>
+	<%= @post.stime %><br>
+	<%= @post.etime %><br>
+<% end %>

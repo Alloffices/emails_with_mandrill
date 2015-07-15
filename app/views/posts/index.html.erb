@@ -1,9 +1,15 @@
 <% @post.each do |post| %>
 
-	<%= link_to post.date, post_path(post) %><br>
-	<%= post.stime %><br>
-	<%= post.etime %><br>
-	<%= link_to 'Edit', edit_post_path(post) %> |
-	<%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+	<% if current_user %>
 
+		<%= link_to post.date, post_path(post) %><br>
+		<%= post.stime %><br>
+		<%= post.etime %><br>
+		<%= link_to 'Edit', edit_post_path(post) %> |
+		<%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+	<% else %>
+		<%= link_to post.date, post_path(post) %><br>
+		<%= post.stime %><br>
+		<%= post.etime %><br>
+	<% end %>
 <% end %>
