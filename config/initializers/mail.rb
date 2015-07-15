@@ -1,9 +1,11 @@
+MANDRILL_API_KEY = "p59tcGe-1P2bghAjbTdbmQ"
+
 ActionMailer::Base.smtp_settings = {
 	address: "smtp.mandrillapp.com",
 	port: 587,
 	enable_starttls_auto: true,
 	user_name: "alloffices.nyc@gmail.com",
-	password: "p59tcGe-1P2bghAjbTdbmQ",
+	password: MANDRILL_API_KEY,
 	authentication: "login"
 }
 
