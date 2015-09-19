@@ -1,5 +1,15 @@
-<%= @user.username %>
-<%= @user.email %>
+<div class="container">
+	<div class="profile-information">
+	<h5>
+		<%= @user.username %>
+	</h5>
+	<h6>
+		<span class="glyphicon glyphicon glyphicon-map-marker" aria-hidden="true"></span><%= @user.email %>
+	</h6>
+	</div>
+</div>
+
+<hr />
 
 <% unless current_user == @user %>
 <%= link_to 'Send message', new_message_path(to: @user.id), class: 'btn btn-default btn-sm' %>

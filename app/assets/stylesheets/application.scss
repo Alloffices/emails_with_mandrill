@@ -10,3 +10,17 @@
   margin-bottom: 1em;
   margin-top: 1em;
 }
+
+.profile-information h6 {
+	float: right;
+	display: inline-block;
+}
+.profile-information h5 {
+	float: left;
+	display: inline-block;
+}
+
+.glyphicon-map-marker {
+	font-size: 10px;
+	margin-right: 10px;
+}
