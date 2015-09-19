@@ -1,0 +1,44 @@
+<%= form_for :message, url: messages_path do |f| %>
+
+<p>
+<%= f.text_field :title,  id: "url", placeholder: "Title" %>
+</p>
+
+<p>
+<%= f.text_field :location, id: "url", placeholder: "Location"%>
+</p>
+
+<p>
+<%= f.text_field :date, placeholder: "Date" %>
+</p>
+
+<p>
+<%= f.text_field :start_time, placeholder: "Start time" %>
+</p>
+
+<p>
+<%= f.text_field :end_time, placeholder: "End time" %>
+</p>
+
+<p>
+<%= f.text_field :skill, placeholder: "Skill" %>
+</p>
+
+<p>
+<%= f.text_area :description,  id: "url", placeholder: "Description"%>
+</p>
+
+<p>
+<%= f.text_field :budget,  id: "url", placeholder: "Budget" %>
+</p>
+
+<div class="form-group">
+	<%= label_tag 'recipients', 'Choose recipients' %>
+	<%= select_tag '', recipients_options(@chosen_recipient), multiple: true, class: 'form-control chosen-it' %>
+</div>
+
+<div>
+	<%= f.button :submit %>
+</div>
+
+<% end %>

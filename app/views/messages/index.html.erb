@@ -1,0 +1,14 @@
+<h2>Messages</h2>
+<% @messages.each do |message| %>
+
+	<div><%= message.message.date %> | <%= message.message.start_time %> | <%= message.message.end_time %>
+	</div>
+	<div><%= message.message.skill %></div>
+	<div><%= message.message.location %></div>
+	<div><%= message.message.title %></div>
+	<div><%= message.message.description %></div>
+	<div><%= message.message.budget %></div>
+	
+	<span>From </span><%= message.message.sender.email %>
+
+<% end %>
