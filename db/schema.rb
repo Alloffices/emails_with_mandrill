@@ -11,15 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715082729) do
+ActiveRecord::Schema.define(version: 20150914004442) do
 
-  create_table "posts", force: :cascade do |t|
-    t.string   "date"
-    t.string   "stime"
-    t.string   "etime"
+  create_table "messages", force: :cascade do |t|
+    t.text     "title"
+    t.integer  "sender_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.text     "description"
+    t.string   "location"
+    t.integer  "budget"
+    t.integer  "date"
+    t.integer  "start_time"
+    t.integer  "end_time"
+    t.string   "skill"
+  end
+
+  create_table "recipients", force: :cascade do |t|
+    t.integer  "message_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150715082729) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "name"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

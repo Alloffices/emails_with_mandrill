@@ -1,28 +1,143 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Don</title>
+  <title>AystarzDon</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <style>
+    .switcher-bar {
+      background: rgba(65,66,69,1);
+      max-height: 60px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 22;
+    }
+    .pull-left {
+        float: center!important;
+    }
+    .logo a {
+        display: block;
+        max-height: 60px;
+        text-align: center;
+        color: #fff;
+        letter-spacing: 5px;
+        padding: 20px;
+        text-decoration: none;
+        background-color: rgba(0,0,0,0.1);
+    }
+    .header-btn {
+        position: relative;
+        text-align: center;
+    }
+    .buy {
+        color: white!important;
+        outline: 0;
+    }
+    .buyit {
+    color: white!important;
+    background-color: #3b5998;
+    outline: 0;
+    }
+    .buyin {
+    color: white!important;
+    background-color: none;
+    outline: 0;
+    }
+    .header-btn>a {
+        display: block;
+        padding: 0;
+        text-decoration: none;
+        padding: 0 20px;
+        color: #fff;
+        line-height: 60px;
+    }
+    .icon-equalizer {
+        font-family: 'Simple-Line-Icons';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+    }
+    .glyphicon-cog {
+      font-size: 20px;
+    }
+  </style>
 </head>
 <body>
-<header>
-	<div class="navbar">
-		<div class="navmenu">
-			<% if current_user %>
-				<%= link_to 'Home', root_path %> |
-				<%= link_to 'Create', new_post_path %> |
-				<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-			<% else %>
-				<%= link_to 'Sign in', new_user_session_path %> |
-				<%= link_to 'Sign up', new_user_registration_path %>
-			<% end %>
-		</div>
-	</div>
+
+<header class="switcher-bar clearfix">
+<% if user_signed_in? %>
+  <div class="logo pull-left">
+  <%= link_to "NOBBBLE", current_user %>
+   </div>
+  <!-- <div class="purchase-btn header-btn pull-right">
+  < link_to "Home", root_path, class: "buy" %>
+  </div> -->
+
+  <div class="purchase-btn header-btn pull-right">
+  <%= link_to "", edit_user_registration_path, class: "buy glyphicon glyphicon-cog" %>
+  </div>
 </header>
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+<% else %>
+
+<header class="switcher-bar clearfix">
+  <div class="logo pull-center">
+    <%= link_to "NOBBBLE", new_user_session_path %>
+  </div>
+</header>
+
+<% end %>
+<!-- <div class="product-switcher pull-right">
+<a href="#" title="Select a Product">
+Select a Product <div class="hamburger-icon"><span></span><span></span><span></span></div>
+</a>
+<ul class="products-list">
+</ul>
+</div> -->
+<!-- <div class="header-btn customizer-btn pull-right">
+<a href="#" class="customizer icon-equalizer"></a>
+</div> -->
+
+<!-- <div class="mobile-btn header-btn pull-right hidden-xs">
+<a href="#" title="Smartphone View">M</a>
+</div>
+
+<div class="tablet-btn header-btn pull-right hidden-xs">
+<a href="#" title="Tablet View">T</a>
+</div>
+
+<div class="desktop-btn header-btn pull-right hidden-xs">
+<a href="#" title="Desktop View">D</a>
+</div> -->
+</header>
+
+
+
+<div>
+	<%= link_to "Home", root_path %> |
+	<% if user_signed_in? %>
+	<%= link_to "New Message", new_message_path %> |
+	<%= link_to "Inbox", messages_path %> |
+	<%= link_to "Profile", current_user %> |
+	<%= link_to "Settings", edit_user_registration_path %> |
+	<%= link_to "Log out",  destroy_user_session_path, method: :delete %>
+	<% else %>
+	<%= link_to "Sign in", new_user_session_path %> |
+	<%= link_to "Register", new_user_registration_path %>
+	<% end %>
+</div>
+<div>
+   <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
+</div>
+
 <%= yield %>
 
 </body>

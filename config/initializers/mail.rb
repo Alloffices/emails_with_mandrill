@@ -1,3 +1,5 @@
+# p59tcGe-1P2bghAjbTdbmQ
+
 MANDRILL_API_KEY = "p59tcGe-1P2bghAjbTdbmQ"
 
 ActionMailer::Base.smtp_settings = {
