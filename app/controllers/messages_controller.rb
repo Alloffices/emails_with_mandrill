@@ -1,20 +1,22 @@
 class MessagesController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user! 
 
 	def new
 		@message = Message.new
-		@chosen_recipient = User.find_by(id: params[:to].to_i) if params[:to]
 		@user = User.find_by(id: params[:user])
+		@chosen_recipient = User.find_by(id: params[:to].to_i) if params[:to]
 	end
 
 	def create
+		# added this
+		@user = current_user
 		@message = current_user.messages.build(message_params)
 		if @message.save
 
 			MessageMailer.message_created(@user).deliver_now
 
 			flash[:success] = "Message Sent!"
-			redirect_to @user
+			redirect_to root_path
 		else
 			flash[:alert] = "Nothing Happend!"
 			render 'new'

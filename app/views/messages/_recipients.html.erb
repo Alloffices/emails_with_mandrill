@@ -36,12 +36,12 @@
 
 <div class="form-group">
 	<%= label_tag 'recipients', 'Choose recipients' %>
-	<%= select_tag '', recipients_options(@chosen_recipient), multiple: true, class: 'form-control chosen-it' %>
+	<%= select_tag 'recipients', recipients_options(@chosen_recipient), multiple: true, class: 'form-control chosen-it' %>
 </div>
 
-  <div>
-    <%= f.submit "here" %>
-  </div>
+<div>
+	<%= f.button :submit %>
+</div>
 
 <% end %>
 </div>
