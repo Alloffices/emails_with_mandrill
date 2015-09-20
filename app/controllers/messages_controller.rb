@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
 			MessageMailer.message_created(@user).deliver_now
 
 			flash[:success] = "Message Sent!"
-			redirect_to root_path
+			redirect_to @user
 		else
 			flash[:alert] = "Nothing Happend!"
 			render 'new'

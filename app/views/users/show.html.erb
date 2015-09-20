@@ -7,7 +7,7 @@
 		</h5>
 
 		<h6>
-			<span class="glyphicon glyphicon glyphicon-briefcase" aria-hidden="true"></span>  photography
+			<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>  <%= @user.location %>
 		</h6>
 		</div>
 	</div>
@@ -21,14 +21,16 @@
 <hr />
 
 <div class="container">
-	<h4>Location</h4>
+	<h6>
+	<span class="glyphicon glyphicon glyphicon-briefcase" aria-hidden="true"></span> <%= @user.skill %>
+	</h6>
 </div>
-
+<br />
 
 <div class="container">
-	<h4>About</h4>
+	<%= @user.about %>
 </div>
-
+<br />
 <div class="container">
 	<h4>Connection</h4>
 	<div class="col-md-12">

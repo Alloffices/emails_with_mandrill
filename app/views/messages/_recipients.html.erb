@@ -1,3 +1,5 @@
+<div class="container">
+
 <%= form_for :message, url: messages_path do |f| %>
 
 <p>
@@ -37,8 +39,9 @@
 	<%= select_tag '', recipients_options(@chosen_recipient), multiple: true, class: 'form-control chosen-it' %>
 </div>
 
-<div>
-	<%= f.button :submit %>
-</div>
+  <div>
+    <%= f.submit "here" %>
+  </div>
 
 <% end %>
+</div>
